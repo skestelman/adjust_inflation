@@ -1,15 +1,15 @@
 # adjust_US_inflation
-Program to adjust for inflation in US data
+Program to adjust for inflation in US data, v1.0
+Last updated: Sept 13, 2019
+
+# About
+This program downloads BLS CPI data from 1920 to 2018, calculates monthly or annual inflation rates, and adjusts variables for inflation. 
+
+# Syntax
+*syntax varlist [if] [in], year(real) [month_3letter_or_annual(string) includestates(string)]
+
+*varlist: list of variables you want to correct for inflation. Be careful to only include variables measured in USD.
+*year: enter the year you want your data in (e.g., to convert all dollar amounts to 2018 dollars, type year(2018)
+*month_3letter_or_annual takes in the month the data were measured in, in case different observations were collected in different months. Some states report revenue measured at different points of the fiscal year, for exmaple. The default is the "annual" CPI. 
 
 
-********************************************************************************
-OWNER: STEPHANIE KESTELMAN
-DATE: SEP 13, 2019
-
-
-*THIS PROGRAM ADJUSTS FOR INFLATION AT THE STATE LEVEL, and TAKES IN THE FOLLOWING INPUTS:
-	* YEAR WE WANT $S IN 
-	* MONTH THE DATA ARE IN, IN CASE DATA COLLECTED IN DIFFERENT MONTHS FOR DIFFERENT STATES. IF ANNUAL, WRITE ANNUAL. ANNUAL IS DEFAULT.
-	* WHICH STATES TO INCLUDE. PROGRAM CAN BE MODIFIED IF NOT AT STATE LEVEL. 
-
-* YEAR RANGE: 1920-2018 AS OF TODAY. 
