@@ -16,10 +16,13 @@ syntax varlist , year(real) [month_3letter_or_annual(string) includestates(strin
 	preserve /*Preserves data being adjusted*/
 		
 	* ADJUST FILE PATH AS NEEDED
-	copy "https://github.com/skestelman/adjust_US_inflation/tree/master/Inflation_dta/raw/CPI_1920_2018.xlsx" "CPI_1920_2018.xlsx"
+	copy https://github.com/skestelman/adjust_US_inflation/tree/master/Inflation_dta/raw/CPI_1920_2018.xlsx ~/CPI_1920_2018.xlsx, replace
+
+	*import excel using  "https://github.com/skestelman/adjust_US_inflation/tree/master/Inflation_dta/raw/CPI_1920_2018.xlsx", cellrange(A12:P120) firstrow clear
 	
-	import excel "CPI_1920_2018.xlsx", cellrange(A12:P110) firstrow clear
+	import excel using ~/CPI_1920_2018.xlsx, cellrange(A12:P120) firstrow clear
 	
+	drop if missing(Annual)
 	
 	if "`month_3letter_or_annual'"==""{
 		local month_3letter_or_annual = "annual"
@@ -67,6 +70,9 @@ syntax varlist , year(real) [month_3letter_or_annual(string) includestates(strin
 	drop `month_3letter_or_annual' `month_3letter_or_annual'_inflation
 	
 	
+	erase $rawdir_dump/TabFig2015prel.xls
+
+		
 	}
 end
 
