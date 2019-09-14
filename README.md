@@ -1,4 +1,4 @@
-# adjust_US_inflation
+# adjust_inflation
 Program to adjust for inflation in US data, v1.0
 Last updated: Sept 13, 2019
 
