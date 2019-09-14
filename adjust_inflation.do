@@ -16,7 +16,9 @@ syntax varlist , year(real) [month_3letter_or_annual(string) includestates(strin
 	preserve /*Preserves data being adjusted*/
 		
 	* ADJUST FILE PATH AS NEEDED
-	import delimited "https://github.com/skestelman/adjust_US_inflation/inflation_dta/raw/CPI_1920_2018.xlsx", cellrange(A12:P110) firstrow clear
+	copy "https://github.com/skestelman/adjust_US_inflation/tree/master/Inflation_dta/raw/CPI_1920_2018.xlsx" "CPI_1920_2018.xlsx"
+	
+	import excel "CPI_1920_2018.xlsx", cellrange(A12:P110) firstrow clear
 	
 	
 	if "`month_3letter_or_annual'"==""{
